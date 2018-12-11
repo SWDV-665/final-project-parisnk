@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{place.title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <!--adding image to the detail page-->
+    <ion-row>
+      <ion-col text-center>
+        <img [src]='place.imageUrl' />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <!--adding title to the detail page-->
+        <p>{{place.title}}</p>
+      </ion-col>
+    </ion-row>
+        <ion-row>
+          <ion-col>
+              <!--adding address to the detail page-->
+            <p>{{place.address}}</p>
+          </ion-col>
+        </ion-row>
+    <ion-row>
+      <ion-col>
+          <!--adding description to the detail page-->
+        {{place.description}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <!--button for leaving the detail page-->
+        <button ion-button block (click)="onLeave()">
+          Leave
+        </button>
+      </ion-col>
+      <ion-col>
+          <!--button for deleting the inspected place-->
+        <button ion-button color="danger" (click)="onDelete()">
+          Delete
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

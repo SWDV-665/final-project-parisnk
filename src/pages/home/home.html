@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <!--adding a button for navigation going from home page to place detail page-->
+      <button ion-button icon-only [navPush]="addPlaceDetailPage">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      InspectAid
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<!--Displaying image of the inspected place with the title given to it-->
+<ion-content padding>
+  <ion-card *ngFor="let place of places; let i = index" (click)="openPlaceDetailPage(place, i)">
+    <img [src]='place.imageUrl' />
+    <ion-card-content text-center>
+      <ion-card-title>
+        {{place.title}}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

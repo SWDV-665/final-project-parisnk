@@ -1,0 +1,6 @@
+page-add-place {
+  //add a custom color for changing the color of text take photo in add place page
+  h5.no-item {
+       color: map-get($colors, 'custom');
+    }
+}

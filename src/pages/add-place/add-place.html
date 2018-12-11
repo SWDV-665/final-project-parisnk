@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add the place inspected</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<!--form for submitting the place inspected-->
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Title</ion-label>
+        <ion-input type="text" placeholder="Add the title here" name="title" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Address</ion-label>
+        <ion-input type="text" placeholder="Add the address here" name="address" ngModel required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Brief Description</ion-label>
+        <ion-textarea name="description" ngModel required></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+      <!--taking photo using native camera-->
+        <ion-col text-center>
+          <!--custom color color for text Take a photo-->
+          <h5 class="no-item">Take a photo</h5>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left block outline type="button" (click)="takePhoto()">
+            <ion-icon name="camera"></ion-icon>
+            Open Camera
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <!--only show image when it is not an empty string-->
+        <ion-col *ngIf="imageUrl != ''">
+          <img [src]='imageUrl' />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        <!--Adding the inspected place, submit is not valid if the fields or image are empty-->
+          <button ion-button color="primary" block type="submit" [disabled]="!f.valid || imageUrl =='' ">
+            Add this place
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>
